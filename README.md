@@ -8,4 +8,4 @@ Migrate postgres using SQL files
 
 `migrate down -t <target>`
 
-`migrate make -t <target>
+`migrate make -t <target>`
