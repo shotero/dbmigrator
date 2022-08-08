@@ -1,0 +1,63 @@
+{
+  "name": "starter",
+  "description": "my awesome project",
+  "type": "module",
+  "version": "0.0.1",
+  "author": "author <author@gmail.com> (http://example.com)",
+  "bugs": {
+    "url": "https://github.com/example/starter/issues",
+    "email": "author@gmail.com"
+  },
+  "contributors": [
+    "author <author@gmail.com> (http://example.com)"
+  ],
+  "devDependencies": {
+    "@commitlint/cli": "latest",
+    "@commitlint/config-conventional": "latest",
+    "ava": "latest",
+    "eslint": "latest",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "latest",
+    "lint-staged": "latest",
+    "nodemon": "^2.0.19",
+    "prettier": "^2.7.1"
+  },
+  "engines": {
+    "node": ">= 18"
+  },
+  "homepage": "https://github.com/example/starter",
+  "keywords": [
+    "starter"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/example/starter"
+  },
+  "scripts": {
+    "dev": "nodemon -r dotenv/config --experimental-json-modules index.js",
+    "start": "node --experimental-json-modules index.js",
+    "lint": "eslint",
+    "test": "NODE_ENV=test ava"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "commander": "^9.4.0",
+    "cosmiconfig": "^7.0.1",
+    "ora": "^6.1.2",
+    "pg": "^8.7.3",
+    "signale": "^1.4.0"
+  }
+}
