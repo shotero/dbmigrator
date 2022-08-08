@@ -1,7 +1,11 @@
-# Starter PKG
+# DB Migrator
 
-Starter template for node projects
+Migrate postgres using SQL files
 
 ## Usage
 
-`npx degit shotero/starter-pkg <my project>`
+`migrate up -t <target>`
+
+`migrate down -t <target>`
+
+`migrate make -t <target>

@@ -1,6 +1,6 @@
 {
-  "name": "starter",
-  "description": "my awesome project",
+  "name": "dbmigrator",
+  "description": "Migrate PostgreSQL using plain sql files",
   "type": "module",
   "version": "0.0.1",
   "author": "author <author@gmail.com> (http://example.com)",
@@ -28,7 +28,10 @@
   },
   "homepage": "https://github.com/example/starter",
   "keywords": [
-    "starter"
+    "sql",
+    "migration",
+    "database",
+    "cli"
   ],
   "license": "MIT",
   "main": "index.js",
