@@ -1,20 +1,20 @@
 import { program } from '../main.js';
 import { logger } from '../logger.js';
 import { pool } from '../adapters.js';
-import { config } from '../config.js';
+import config from '../config.js';
 
 function load() {
   program
     .command('down')
     .description('rollback migrations')
-    .option('-t,--target <migration>', 'target migration')
-    .action((options) => {
+    .argument('<migration>', 'migration to revert back to')
+    .action((migration) => {
       console.log('rollback');
-      down(options);
+      down(migration, config, pool);
     });
 }
 
-function down(options) {
+function down(migration, settings, db) {
   console.log('revert migrations');
 }
 
