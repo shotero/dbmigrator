@@ -14,7 +14,7 @@ Migrate PostgreSQL database using vanilla SQL files
 
 Sample configuration file:
 
-`.dbmigratorrc.json`
+`.dbmigraterc.json`
 
 ```
 {
