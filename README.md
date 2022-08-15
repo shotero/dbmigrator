@@ -8,7 +8,7 @@ Migrate PostgreSQL database using vanilla SQL files
 
 `migrate down -t <target>`
 
-`migrate make -t <target>`
+`migrate make <name>`
 
 ## Configuration
 
