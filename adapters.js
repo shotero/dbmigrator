@@ -1,8 +1,6 @@
 import Pg from 'pg';
 import config from './config.js';
 
-console.dir(config);
-
 const pool = new Pg.Pool({
   user: config.db.user,
   host: config.db.host,
