@@ -28,9 +28,9 @@ function load() {
 async function up(target, settings, db) {
   try {
     const migrationTable = getMigrationTable(settings);
-    await ensureMigrationTable(pool, settings);
+    await ensureMigrationTable(db, settings);
     const all = getMigrations(settings.paths.up);
-    const applied = await getApplied(pool, migrationTable);
+    const applied = await getApplied(db, migrationTable);
     const migrations = difference(
       all,
       applied.rows.map((i) => i.filename)
