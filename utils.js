@@ -29,7 +29,7 @@ function difference(from, to) {
 }
 
 function cut(list, target) {
-  return [...list].sort().slice(0, target);
+  return [...list].slice(0, list.indexOf(target));
 }
 
 function getMigrationTable(settings) {
