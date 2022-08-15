@@ -32,21 +32,13 @@ function make(name, settings) {
   const upTemplate = `-- Created by: ${settings.creator}
 -- Created at: ${format(date, 'yyyy/MM/dd HH:mmss')};
 
-BEGIN;
-
-  -- your code goes here
-
-END;
+-- Your code goes here
 `;
 
   const downTemplate = `-- Created by: ${settings.creator}
 -- Created at: ${format(date, 'yyyy/MM/dd HH:mmss')};
 
-BEGIN;
-
-  -- your code goes here
-
-END;
+-- Your code goes here
 `;
 
   logger.log(upFile);
