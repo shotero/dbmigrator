@@ -23,11 +23,10 @@ function make(name, settings) {
   fs.mkdirSync(settings.paths.up, { recursive: true });
   fs.mkdirSync(settings.paths.down, { recursive: true });
 
-  const up = timestamp + '_up_' + name + '.sql';
-  const down = timestamp + '_down_' + name + '.sql';
+  const filename = timestamp + '_' + name + '.sql';
 
-  const upFile = path.resolve(settings.paths.up, up);
-  const downFile = path.resolve(settings.paths.down, down);
+  const upFile = path.resolve(settings.paths.up, filename);
+  const downFile = path.resolve(settings.paths.down, filename);
 
   const upTemplate = `-- Created by: ${settings.creator}
 -- Created at: ${format(date, 'yyyy/MM/dd HH:mmss')};
