@@ -3,16 +3,16 @@
   "description": "Migrate PostgreSQL using plain sql files",
   "type": "module",
   "version": "0.1.2",
-  "author": "author <author@gmail.com> (http://example.com)",
+  "author": "shotero <lemon.chiffon@shotero.com> (http://shotero.com)",
   "bin": {
     "dbmigrator": "main.js"
   },
   "bugs": {
-    "url": "https://github.com/example/starter/issues",
-    "email": "author@gmail.com"
+    "url": "https://github.com/shotero/dbmigrator/issues",
+    "email": "lemon.chiffon@shotero.com"
   },
   "contributors": [
-    "author <author@gmail.com> (http://example.com)"
+    "shotero <lemon.chiffon@shotero.com> (https://shotero.com)"
   ],
   "devDependencies": {
     "@commitlint/cli": "latest",
@@ -30,7 +30,7 @@
   "engines": {
     "node": ">= 18"
   },
-  "homepage": "https://github.com/example/starter",
+  "homepage": "https://github.com/shotero/dbmigrator",
   "keywords": [
     "sql",
     "migration",
@@ -41,11 +41,10 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/example/starter"
+    "url": "https://github.com/shotero/dbmigrator"
   },
   "scripts": {
-    "dev": "nodemon -r dotenv/config --experimental-json-modules index.js",
-    "start": "node --experimental-json-modules index.js",
+    "dev": "node main.js",
     "lint": "eslint",
     "test": "NODE_ENV=test ava"
   },
@@ -64,7 +63,6 @@
     "commander": "^9.4.0",
     "cosmiconfig": "^7.0.1",
     "date-fns": "^2.29.1",
-    "ora": "^6.1.2",
     "pg": "^8.7.3",
     "signale": "^1.4.0"
   }
