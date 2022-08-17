@@ -23,27 +23,29 @@ Migrate PostgreSQL database using vanilla SQL files
 
 Sample configuration file:
 
-`.dbmigraterc.json`
+`.dbmigraterc.js`
 
 ```
-{
-  "creator": "me@email.com",
+const config = {
+  "creator": "testuser",
   "db": {
-    "user": "system",
-    "host": "localhost",
+    "user": process.env.DB_USER,
+    "host": process.env.DB_HOST,
     "port": 5432,
     "database": "db",
-    "password": ""
+    "password": process.env.DB_PASSWORD
   },
   "paths": {
-    "up": "/Users/<user>/projects/myproject/db/migrations/up",
-    "down": "/Users/<user>/projects/myproject/db/migrations/down"
+    "up": "./db/migrations/up",
+    "down": "./db/migrations/down"
   },
   "migration": {
     "schema": "migration",
     "table": "migrations"
   }
 }
+
+module.exports = config;
 ```
 
 ## Example
