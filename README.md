@@ -13,11 +13,11 @@ Migrate PostgreSQL database using vanilla SQL files
 
 ## Usage
 
-`migrate up -t [target]`
+`dbmigrator up -t [target]`
 
-`migrate down -t <target>`
+`dbmigrator down -t <target>`
 
-`migrate make <name>`
+`dbmigrator make <name>`
 
 ## Configuration
 
@@ -48,5 +48,7 @@ Sample configuration file:
 
 ## Example
 
-- `migrate make hello`
-- `migrate make world`
+- `dbmigrator make hello`
+- `dbmigrator make world`
+- `dbmigrator up`
+- `dbmigrator down <timestamp>_world`
