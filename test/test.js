@@ -1,20 +1,24 @@
 import test from 'ava';
-import { BaseJumper } from '../index.js';
+import {
+  apply,
+  checksum,
+  cut,
+  difference,
+  ensureMigrationTable,
+  handleError,
+  getMigrationTable,
+  getMigrations,
+  getApplied
+} from '../utils.js';
 
-function binaryToHex() {
-  return new BaseJumper(2, 16);
-}
-
-function hexToBinary() {
-  return new BaseJumper(16, 2);
-}
-
-test('conversion', (t) => {
-  const jumper = binaryToHex();
-  t.is(jumper.convert(10), '2');
+test('checksum', (t) => {
+  t.is(checksum('hello world'), '5eb63bbbe01eeed093cb22bb8f5acdc3');
 });
 
-test('addition', (t) => {
-  const jumper = hexToBinary();
-  t.is(jumper.add(2, 1), '11');
+test('cut', (t) => {
+  t.deepEqual(cut([44, 55, 66, 77], 55), [44]);
+});
+
+test('difference', (t) => {
+  t.deepEqual(difference([44, 55, 66, 77], [55]), [44, 66, 77]);
 });
