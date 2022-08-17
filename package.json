@@ -4,6 +4,9 @@
   "type": "module",
   "version": "0.0.1",
   "author": "author <author@gmail.com> (http://example.com)",
+  "bin": {
+    "dbmigrate": "main.js"
+  },
   "bugs": {
     "url": "https://github.com/example/starter/issues",
     "email": "author@gmail.com"

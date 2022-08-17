@@ -2,6 +2,15 @@
 
 Migrate PostgreSQL database using vanilla SQL files
 
+## Prerequisite:
+
+- PostgreSQL
+- Database
+
+## Install
+
+`npm install -g @shotero/dbmigrator`
+
 ## Usage
 
 `migrate up -t [target]`
@@ -35,5 +44,9 @@ Sample configuration file:
     "table": "migrations"
   }
 }
-
 ```
+
+## Example
+
+- `migrate make hello`
+- `migrate make world`
