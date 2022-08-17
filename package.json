@@ -1,11 +1,11 @@
 {
-  "name": "dbmigrator",
+  "name": "@shotero/dbmigrator",
   "description": "Migrate PostgreSQL using plain sql files",
   "type": "module",
   "version": "0.0.1",
   "author": "author <author@gmail.com> (http://example.com)",
   "bin": {
-    "dbmigrate": "main.js"
+    "dbmigrator": "main.js"
   },
   "bugs": {
     "url": "https://github.com/example/starter/issues",
