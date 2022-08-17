@@ -2,7 +2,7 @@
   "name": "@shotero/dbmigrator",
   "description": "Migrate PostgreSQL using plain sql files",
   "type": "module",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "shotero <lemon.chiffon@shotero.com> (http://shotero.com)",
   "bin": {
     "dbmigrator": "main.js"
