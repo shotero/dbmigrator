@@ -4,6 +4,7 @@ import { format } from 'date-fns';
 import { program } from '../main.js';
 import { logger } from '../logger.js';
 import config from '../config.js';
+import { getFullPath } from '../utils.js';
 
 function load() {
   program
@@ -16,17 +17,25 @@ function load() {
     });
 }
 
-function make(name, settings) {
+function make(name, config) {
   const date = Date.now();
   const timestamp = format(date, 'yyyyMMddHHmmss');
+  const settings = config.config;
 
-  fs.mkdirSync(settings.paths.up, { recursive: true });
-  fs.mkdirSync(settings.paths.down, { recursive: true });
+  const upPath = getFullPath(settings.paths.up, config.filepath);
+  const downPath = getFullPath(settings.paths.down, config.filepath);
+
+  fs.mkdirSync(upPath, {
+    recursive: true
+  });
+  fs.mkdirSync(downPath, {
+    recursive: true
+  });
 
   const filename = timestamp + '_' + name + '.sql';
 
-  const upFile = path.resolve(settings.paths.up, filename);
-  const downFile = path.resolve(settings.paths.down, filename);
+  const upFile = path.resolve(upPath, filename);
+  const downFile = path.resolve(downPath, filename);
 
   const upTemplate = `-- Created by: ${settings.creator}
 -- Created at: ${format(date, 'yyyy/MM/dd HH:mmss')};

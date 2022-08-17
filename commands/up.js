@@ -10,6 +10,7 @@ import {
   difference,
   ensureMigrationTable,
   getApplied,
+  getFullPath,
   getMigrationTable,
   getMigrations,
   handleError
@@ -25,11 +26,12 @@ function load() {
     });
 }
 
-async function up(target, settings, db) {
+async function up(target, config, db) {
   try {
+    const settings = config.config;
     const migrationTable = getMigrationTable(settings);
     await ensureMigrationTable(db, settings);
-    const all = getMigrations(settings.paths.up);
+    const all = getMigrations(getFullPath(settings.paths.up, config.filepath));
     const applied = await getApplied(db, migrationTable);
     const migrations = difference(
       all,
@@ -55,7 +57,7 @@ function getQuery(migrations, settings) {
   logger.log(`List of migrations being applied:`);
   for (const migration of migrations) {
     logger.log(`${migration}`);
-    const filePath = settings.paths.up;
+    const filePath = getFullPath(settings.paths.up, config.filepath);
     const content =
       fs.readFileSync(path.join(filePath, migration), 'utf8') || '';
     sql += content;

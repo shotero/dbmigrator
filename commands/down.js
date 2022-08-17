@@ -9,6 +9,7 @@ import {
   checksum,
   cut,
   ensureMigrationTable,
+  getFullPath,
   getApplied,
   getMigrationTable,
   handleError
@@ -25,8 +26,9 @@ function load() {
     });
 }
 
-async function down(target, settings, db) {
+async function down(target, config, db) {
   try {
+    const settings = config.config;
     const migrationTable = getMigrationTable(settings);
     ensureMigrationTable(db, migrationTable);
     const migrations = await getApplied(db, migrationTable);
@@ -49,7 +51,7 @@ function getQuery(migrations, settings) {
   logger.log(`List of migrations being reversed:`);
   for (const migration of migrations) {
     logger.log(`${migration}`);
-    const filePath = settings.paths.down;
+    const filePath = getFullPath(settings.paths.up, config.filepath);
     const content =
       fs.readFileSync(path.join(filePath, migration), 'utf8') || '';
     sql += content;

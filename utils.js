@@ -13,6 +13,13 @@ function getMigrations(path) {
   return fs.readdirSync(path);
 }
 
+function getFullPath(filepath, root) {
+  if (path.isAbsolute(filepath)) {
+    return filepath;
+  }
+  return path.join(path.dirname(root), filepath);
+}
+
 async function ensureMigrationTable(pool, settings) {
   const schema =
     (settings.migration && settings.migration.schema) || 'migration';
@@ -66,6 +73,7 @@ export {
   difference,
   ensureMigrationTable,
   handleError,
+  getFullPath,
   getMigrationTable,
   getMigrations,
   getApplied
