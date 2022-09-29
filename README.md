@@ -23,7 +23,8 @@ Migrate PostgreSQL database using vanilla SQL files
 
 Sample configuration file:
 
-`.dbmigraterc.js`
+`.dbmigratorrc.js` OR
+`.dbmigratorrc.cjs`
 
 ```
 const config = {

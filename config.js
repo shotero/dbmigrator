@@ -1,6 +1,6 @@
 import { cosmiconfigSync } from 'cosmiconfig';
 
-const explorer = cosmiconfigSync('dbmigrate');
+const explorer = cosmiconfigSync('dbmigrator');
 const config = explorer.search();
 
 export default config;
