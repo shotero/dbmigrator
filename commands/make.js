@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import process from 'node:process';
 import { format } from 'date-fns';
 import { program } from '../main.js';
 import { logger } from '../logger.js';
@@ -12,7 +13,7 @@ function load() {
     .description('create new migration')
     .argument('<name>', 'name of the migration')
     .action((name) => {
-      console.log('make');
+      logger.info(`make ${name}`);
       make(name, config);
     });
 }
@@ -37,14 +38,16 @@ function make(name, config) {
   const upFile = path.resolve(upPath, filename);
   const downFile = path.resolve(downPath, filename);
 
-  const upTemplate = `-- Created by: ${settings.creator}
--- Created at: ${format(date, 'yyyy/MM/dd HH:mmss')};
+  const upTemplate = `-- UP SCRIPT: ${name}
+-- Created by: ${settings.creator}
+-- Created at: ${format(date, 'yyyy/MM/dd HH:mmss')}
 
 -- Your code goes here
 `;
 
-  const downTemplate = `-- Created by: ${settings.creator}
--- Created at: ${format(date, 'yyyy/MM/dd HH:mmss')};
+  const downTemplate = `-- DOWN SCRIPT: ${name}
+-- Created by: ${settings.creator}
+-- Created at: ${format(date, 'yyyy/MM/dd HH:mmss')}
 
 -- Your code goes here
 `;
@@ -54,6 +57,8 @@ function make(name, config) {
 
   fs.writeFileSync(upFile, upTemplate);
   fs.writeFileSync(downFile, downTemplate);
+
+  process.exit(0);
 }
 
 export { make, load };
