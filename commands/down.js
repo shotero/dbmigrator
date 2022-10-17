@@ -51,7 +51,7 @@ function getQuery(migrations, settings) {
   logger.log(`List of migrations being reversed:`);
   for (const migration of migrations) {
     logger.log(`${migration}`);
-    const filePath = getFullPath(settings.paths.up, config.filepath);
+    const filePath = getFullPath(settings.paths.down, config.filepath);
     const content =
       fs.readFileSync(path.join(filePath, migration), 'utf8') || '';
     sql += content;
