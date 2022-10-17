@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { program } from '../main.js';
 import { logger } from '../logger.js';
-import { pool } from '../adapters.js';
+import { client } from '../adapters.js';
 import config from '../config.js';
 import {
   apply,
@@ -22,7 +22,7 @@ function load() {
     .description('run migrations')
     .argument('[migration]', 'migration to go up to')
     .action((target) => {
-      up(target, config, pool);
+      up(target, config, client);
     });
 }
 

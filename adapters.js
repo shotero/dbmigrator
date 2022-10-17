@@ -14,4 +14,6 @@ const pool = new Pg.Pool({
   port: config.db.port
 });
 
-export { pool };
+const client = await pool.connect();
+
+export { client };

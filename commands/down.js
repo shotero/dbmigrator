@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { program } from '../main.js';
 import { logger } from '../logger.js';
-import { pool } from '../adapters.js';
+import { client } from '../adapters.js';
 import config from '../config.js';
 import {
   apply,
@@ -22,7 +22,7 @@ function load() {
     .argument('<migration>', 'migration to revert back to')
     .action((target) => {
       console.log('rollback');
-      down(target, config, pool);
+      down(target, config, client);
     });
 }
 
@@ -41,6 +41,7 @@ async function down(target, config, db) {
     await db.end();
     logger.success('Successfully reverted');
   } catch (e) {
+    await db.end();
     handleError(e);
   }
 }
